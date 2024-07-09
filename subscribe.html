@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Learn : Subscribe</title>
+   <link rel="stylesheet" href="subscribe.css">
+   <link rel="shortcut icon" href="img/icon.ico" type="image/x-icon">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<script type="text/javascript"src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("F9BYPVugdBlg7TDfm");
+   })();
+</script>
+<script>
+    function sendEmail(){
+        var params ={
+            email: document.getElementById("email").value,
+        };
+        
+        const serviceID = "service_ncmr9oo"
+    const templateID ="template_wriwndh"
+    emailjs.send(serviceID,templateID,params)
+    .then(
+        res =>{
+            document.getElementById("email").value ="";
+            console.log(res);
+        swal("Done!", "Thank you for subscribing!", "success");
+        }
+    )
+    .catch((err) => console.log(err));
+
+    }
+   
+</script>
+<body>
+    <nav class="navbar">
+      <a href="index.html"> <img src="logo2.png" class="logo" alt=""></a> 
+        <a href="index.html" class="link">Home</a> 
+    </nav>
+    <div class="form-container">
+   
+    <div class="onstart">
+        <lottie-player class="lottie" src="https://lottie.host/32031f28-9444-465a-8321-5c2c4b943ca8/uCuHpJTVNn.json"  background="transparent"  speed="1"   loop  autoplay ></lottie-player>
+    </div>
+    <h1 class="seq">Become a Subscriber</h1>
+    <label for="email" class="seq"> Email Address</label>
+    <input type="email" id="email" class="seq">
+    <p class="seq">Subscribe to our blog and get the latest updates straight to your inbox.</p>
+    <a href="#" class=" join cta seq" onclick="sendEmail() ">SUBSCRIBE</a>
+   
+</div>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+</body>
+</html>
